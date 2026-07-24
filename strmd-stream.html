@@ -4,11 +4,11 @@
   <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Watch Live Sports Stream Free ÃƒÂ¢Ã‚â‚¬Ã‚â€œ StreamEast Alternative</title>
-  <meta name="description" content="Watch live sports streams free in HD. Best StreamEast, CrackStreams, TotalSportek & MethStreams alternative. NFL, NBA, MLB, NHL, Soccer, Boxing, MMA ÃƒÂ¢Ã‚â‚¬Ã‚â€œ no subscription."/>
+  <title>Watch Live Sports Stream Free – StreamEast Alternative</title>
+  <meta name="description" content="Watch live sports streams free in HD. Best StreamEast, CrackStreams, TotalSportek & MethStreams alternative. NFL, NBA, MLB, NHL, Soccer, Boxing, MMA – no subscription."/>
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"/>
   <meta property="og:type" content="website"/>
-  <meta property="og:title" content="Watch Live Sports Stream Free ÃƒÂ¢Ã‚â‚¬Ã‚â€œ StreamEast Alternative"/>
+  <meta property="og:title" content="Watch Live Sports Stream Free – StreamEast Alternative"/>
   <meta property="og:url" content="https://resellscripts.info/strmd-stream.html"/>
   <meta name="twitter:card" content="summary_large_image"/>
 
@@ -115,8 +115,8 @@
           <div class="col-lg-12">
 
             <div class="match-title-bar">
-              <h3 id="matchTitle">LoadingÃƒÂ¢Ã‚â‚¬Ã‚Â¦</h3>
-              <span id="matchBadge" class="badge-upcoming-header">ÃƒÂ¢Ã‚ÂÃ‚Â° --:--</span>
+              <h3 id="matchTitle">Loading…</h3>
+              <span id="matchBadge" class="badge-upcoming-header">⏰ --:--</span>
               <a href="https://resellscripts.info/" class="back-home-btn">
                 <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
                 All Matches
@@ -131,7 +131,7 @@
               <div class="player-wrap" id="playerWrap">
                 <div class="player-placeholder" id="playerPlaceholder">
                   <div class="spinner"></div>
-                  <span>Loading streamÃƒÂ¢Ã‚â‚¬Ã‚Â¦</span>
+                  <span>Loading stream…</span>
                 </div>
               </div>
             </div>
@@ -143,7 +143,7 @@
 
     <footer class="site-footer">
       <div class="wrap">
-        <a href="https://resellscripts.info/">ÃƒÂ¢Ã‚â€ Ã‚Â All Matches</a>
+        <a href="https://resellscripts.info/">← All Matches</a>
       </div>
       <div class="text-center">
         <ul class="list-inline mb-0 small">
@@ -163,8 +163,8 @@
   const API_BASE = 'https://ws.kora-api.space/api/streamed/match/';
 
   const LANG_FLAGS = {
-    English:'ÃƒÂ°Ã‚Å¸Ã‚â€¡Ã‚Â¬ÃƒÂ°Ã‚Å¸Ã‚â€¡Ã‚Â§', Spanish:'ÃƒÂ°Ã‚Å¸Ã‚â€¡Ã‚ÂªÃƒÂ°Ã‚Å¸Ã‚â€¡Ã‚Â¸', Italian:'ÃƒÂ°Ã‚Å¸Ã‚â€¡Ã‚Â®ÃƒÂ°Ã‚Å¸Ã‚â€¡Ã‚Â¹', Italien:'ÃƒÂ°Ã‚Å¸Ã‚â€¡Ã‚Â®ÃƒÂ°Ã‚Å¸Ã‚â€¡Ã‚Â¹',
-    Deutch:'ÃƒÂ°Ã‚Å¸Ã‚â€¡Ã‚Â©ÃƒÂ°Ã‚Å¸Ã‚â€¡Ã‚Âª', French:'ÃƒÂ°Ã‚Å¸Ã‚â€¡Ã‚Â«ÃƒÂ°Ã‚Å¸Ã‚â€¡Ã‚Â·', Portuguese:'ÃƒÂ°Ã‚Å¸Ã‚â€¡Ã‚ÂµÃƒÂ°Ã‚Å¸Ã‚â€¡Ã‚Â¹', Arabic:'ÃƒÂ°Ã‚Å¸Ã‚â€¡Ã‚Â¸ÃƒÂ°Ã‚Å¸Ã‚â€¡Ã‚Â¦',
+    English:'🇬🇧', Spanish:'🇪🇸', Italian:'🇮🇹', Italien:'🇮🇹',
+    Deutch:'🇩🇪', French:'🇫🇷', Portuguese:'🇵🇹', Arabic:'🇸🇦',
   };
 
   const params     = new URLSearchParams(location.search);
@@ -174,9 +174,9 @@
   let currentMatch = null;
 
   function formatTime(iso) {
-    if (!iso) return 'ÃƒÂ¢Ã‚â‚¬Ã‚â€';
+    if (!iso) return '—';
     const d = new Date(iso), now = new Date(), diff = d - now;
-    if (isNaN(d)) return 'ÃƒÂ¢Ã‚â‚¬Ã‚â€';
+    if (isNaN(d)) return '—';
     if (diff < 0 && diff > -7200000) return 'In progress';
     if (diff >= 0 && diff < 3600000) return `In ${Math.round(diff/60000)}m`;
     return d.toLocaleString([], { month:'short', day:'numeric', hour:'2-digit', minute:'2-digit' });
@@ -196,7 +196,7 @@
       renderStreamTabs();
       renderPlayer();
     } catch (e) {
-      document.getElementById('matchTitle').textContent = 'ÃƒÂ¢Ã‚Å¡Ã‚Â ÃƒÂ¯Ã‚Â¸Ã‚Â Could not load stream.';
+      document.getElementById('matchTitle').textContent = '⚠️ Could not load stream.';
       document.getElementById('playerWrap').innerHTML =
         '<div class="player-placeholder"><span>Stream unavailable. Please try again.</span></div>';
     }
@@ -204,7 +204,7 @@
 
   function renderHeader() {
     if (!currentMatch) return;
-    document.title = `Watch ${currentMatch.name} Live ÃƒÂ¢Ã‚â‚¬Ã‚â€œ SportStream Live`;
+    document.title = `Watch ${currentMatch.name} Live – SportStream Live`;
     document.getElementById('matchTitle').textContent = currentMatch.name;
 
     const badge = document.getElementById('matchBadge');
@@ -213,11 +213,11 @@
       badge.innerHTML = '<div class="pulse"></div> LIVE';
     } else {
       badge.className = 'badge-upcoming-header';
-      badge.textContent = 'ÃƒÂ¢Ã‚ÂÃ‚Â° ' + formatTime(currentMatch.begin_at);
+      badge.textContent = '⏰ ' + formatTime(currentMatch.begin_at);
     }
 
     document.querySelector('meta[name="description"]')?.setAttribute('content',
-      `Watch ${currentMatch.name} live stream free online in HD. ${currentMatch.category?.name || ''} streaming ÃƒÂ¢Ã‚â‚¬Ã‚â€œ no subscription.`);
+      `Watch ${currentMatch.name} live stream free online in HD. ${currentMatch.category?.name || ''} streaming – no subscription.`);
   }
 
   function renderPlayer() {
@@ -250,7 +250,7 @@
     let html = '<span class="tabs-label">Streams</span>';
     streams.forEach((s, i) => {
       const langLabel = s.lang || ('Stream ' + (i + 1));
-      const flag      = LANG_FLAGS[langLabel.split(' ')[0]] || 'ÃƒÂ°Ã‚Å¸Ã‚Å’Ã‚Â';
+      const flag      = LANG_FLAGS[langLabel.split(' ')[0]] || '🌐';
       html += `<button class="tab-btn${i === activeStream ? ' active' : ''}" data-idx="${i}">${flag} ${langLabel}</button>`;
     });
     html += `<button class="fullscreen-btn" id="fsBtn">
@@ -298,6 +298,7 @@
     window.scrollTo(0, 0);
   };
 </script>
+
 
 
 </body>
