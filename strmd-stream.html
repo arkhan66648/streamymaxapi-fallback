@@ -168,7 +168,7 @@
   };
 
   const params     = new URLSearchParams(location.search);
-  const matchId    = params.get('id');
+  const matchId    = params.get('id') || params.get('m');
   const streamIdx  = parseInt(params.get('s') || '0');
   let activeStream = streamIdx;
   let currentMatch = null;
