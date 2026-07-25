@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="referrer" content="no-referrer" />
   <meta name="robots" content="noindex, nofollow" />
   <title>Stream</title>
   <style>
@@ -30,25 +31,23 @@
 </head>
 <body>
 <script>
-  const url = new URLSearchParams(location.search).get('url');
+  var p = new URLSearchParams(location.search);
+  var url = p.get('url');
+  var mode = p.get('mode');
   if (url) {
-    const iframe = document.createElement('iframe');
-    iframe.src = decodeURIComponent(url);
-    iframe.setAttribute('allowfullscreen', '');
-    iframe.setAttribute('allow', 'autoplay; encrypted-media; fullscreen; picture-in-picture');
-    iframe.setAttribute('referrerpolicy', 'no-referrer');
-    iframe.setAttribute('scrolling', 'no');
-    document.body.appendChild(iframe);
+    if (mode === 'redirect') {
+      location.replace(decodeURIComponent(url));
+    } else {
+      var iframe = document.createElement('iframe');
+      iframe.src = decodeURIComponent(url);
+      iframe.setAttribute('allowfullscreen', '');
+      iframe.setAttribute('allow', 'autoplay; encrypted-media; fullscreen; picture-in-picture');
+      iframe.setAttribute('referrerpolicy', 'no-referrer');
+      iframe.setAttribute('scrolling', 'no');
+      document.body.appendChild(iframe);
+    }
   } else {
-    document.body.innerHTML = `
-      <div class="error">
-        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
-          <circle cx="12" cy="12" r="10"/>
-          <line x1="12" y1="8" x2="12" y2="12"/>
-          <line x1="12" y1="16" x2="12.01" y2="16"/>
-        </svg>
-        <span>No stream URL provided.</span>
-      </div>`;
+    document.body.innerHTML = '<div class="error"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg><span>No stream URL provided.</span></div>';
   }
 </script>
 
